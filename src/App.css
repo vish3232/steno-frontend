@@ -24,8 +24,122 @@
   color: white;
 }
 
+.main-container{
+  width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+height: 100%;
+}
+
+.blog-list-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.blog-list-item-container{
+  margin-top: 2%;
+width: 80%;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+justify-content: flex-start;
+align-self: center;
+cursor: pointer;
+}
+
+
+.image-container{
+  display: flex;
+  width: 50%;
+  height: 200px;
+}
+.image-container img{
+    width:90%;
+    height:100%;
+    object-fit:cover;
+}
+
+.title-and-subtitle-container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.get-post-main-container{
+  width: 100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+
+}
+
+.create-post-button{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: blue;
+  color: white;
+  align-self: center;
+  margin-top: 2%;
+ }
+
+.editor-js-textinput{
+  width: 100%;
+}
+
+.submit-button{
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  align-self: center;
+}
+
+.save-button{
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  align-self: center;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.title-input-box{
+  font-size: 3em;
+  font-weight: bolder;
+  width: 100%;
+  border: none;
+
+}
+
+.sub-title-input-box{
+  font-size: 1em;
+   width: 100%;
+   border: none;
+ 
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +150,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+
