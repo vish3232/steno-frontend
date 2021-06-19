@@ -41,7 +41,7 @@ function GetPost(props) {
     return (
         <div className="get-post-main-container" >
             <div onClick={()=>props.history.push('/post')} className="create-post-button" >create Post</div>
-            <div>Draft</div>
+            <div onClick={()=>props.history.push('/draft')} className="draft-button" >Draft</div>
         <div className="blog-list-container" >
             {
                 post.map((data)=>{

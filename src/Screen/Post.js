@@ -45,6 +45,32 @@ function Post() {
    
     }
 
+    const draftPost=()=>{
+      const formData = new FormData();
+      formData.append("image", file)
+      
+      formData.append("title",titledata)
+      formData.append("subtitle", subTitle)
+      
+      formData.append("paragraph",JSON.stringify(paragraphTitle))
+      formData.append("slug",url)
+      
+      console.log(formData)  
+      fetch('http://localhost:8080/draft/createDraft', {
+        method: 'POST',
+        
+        body:  formData
+    })
+        .then(response => response.json())
+        .then(res => {
+            
+                 if (res.message === "insert successfully...") {
+                alert(res.message)
+            }
+        })
+   
+    }
+
     
     return (
         <div className="main-container" >
@@ -67,7 +93,7 @@ function Post() {
       <div onClick={()=>publishPost()} className="submit-button" >
         Submit
       </div>
-      <div className="save-button" >
+      <div onClick={()=>draftPost()} className="save-button" >
         Save
       </div>
     </div>

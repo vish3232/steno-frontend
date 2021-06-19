@@ -15,7 +15,9 @@ function GetPostAsPerId(props) {
     var htmlObject = document.createElement('div')
           
     useEffect(() => {
+        if(props.location.state!==null){
        getPostAsPerId()
+        }
     }, [])
 
     const getPostAsPerId=()=>{

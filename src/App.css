@@ -95,6 +95,22 @@ justify-content: flex-start;
   margin-top: 2%;
  }
 
+ .draft-button{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: blue;
+  color: white;
+  align-self: center;
+  margin-top: 2%;
+ }
+
+
 .editor-js-textinput{
   width: 100%;
 }
