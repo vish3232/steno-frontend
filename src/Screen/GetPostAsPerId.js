@@ -5,7 +5,8 @@ import edjsHTML from 'editorjs-html'
 import { EDITOR_JS_TOOLS } from '../tools'
 import {textinput_component} from '../Textinput'
 import {textinput_forparagraph} from '../Textinput'
-import Parser from '@son_xx/editor-js-parser'
+//import Parser from '@son_xx/editor-js-parser'
+import Parser from 'editorjs-viewer'
 global.backendData={}
 function GetPostAsPerId(props) {
     const [allData,setallData]=useState({})
@@ -50,9 +51,6 @@ function GetPostAsPerId(props) {
             <div>
                 {allData.subtitle}
             </div>
-            <blockquote class="blockquote">
-  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-</blockquote>
         </div>
        
         )

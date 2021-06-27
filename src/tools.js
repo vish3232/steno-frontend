@@ -17,6 +17,14 @@ import SimpleImage from '@editorjs/simple-image'
 import TextVariantTune from '@editorjs/text-variant-tune'
 export const EDITOR_JS_TOOLS = {
     textVariant: TextVariantTune,
+    table: {
+      class: Table,
+      inlineToolbar: true,
+      config: {
+        rows: 2,
+        cols: 2,
+      },
+    },
   
   paragraph: { // apply only for the 'paragraph' tool
     tunes: ['textVariant'],
