@@ -1,0 +1,45 @@
+.right-section-apps {
+  margin-top: 20px;
+  height: calc(100vh - 90px);
+  background-color: #fff;
+  border-radius: 10px 0px 0px 0px;
+  padding: 15px 20px;
+}
+
+.right-section-apps .title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.right-section-apps input {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  background: #f8f8f9;
+  border-radius: 10px;
+  border: none;
+  padding: 0px 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.right-section-apps .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    
+}
+
+.right-section-apps .card .box {
+  width: 120px;
+  height: 70px;
+  background: rgba(0, 120, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.right-section-apps p {
+    color: #404040;
+    font-size: 12px;
+}

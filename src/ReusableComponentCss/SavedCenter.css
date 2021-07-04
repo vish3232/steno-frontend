@@ -1,0 +1,102 @@
+.saved-center .filter {
+  margin-top: 20px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
+
+.saved-center .filter button {
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 0px 20px;
+  background-color: #fff;
+}
+
+.saved-center .filter button:nth-child(1) {
+  border: 2px solid #ff4359;
+}
+
+.saved-center .filter button:nth-child(2) {
+  border: 2px solid #00ecc2;
+}
+
+.saved-center .filter button:nth-child(3) {
+  border: 2px solid #ff4359;
+}
+
+.saved-center .filter button:nth-child(4) {
+  border: 2px solid #00ecc2;
+}
+
+.saved-center .filter .active {
+  background: #00ecc2;
+  color: #fff;
+  border: none !important;
+}
+
+.saved-center .saved-container {
+  height: calc(100vh - 200px);
+  overflow: scroll;
+}
+
+.saved-center .saved-container .card {
+  position: relative;
+  background-color: #fff;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.saved-center .saved-container .active {
+  border: 2px solid #00ecc2;
+}
+
+.saved-center .saved-container .sub-card {
+  background-color: #fff;
+  position: absolute;
+  right: 50px;
+  border: 0.5px solid rgba(196, 196, 196, 0.5);
+  box-shadow: 4px 4px 10px rgba(196, 196, 196, 0.5);
+  border-radius: 10px;
+  width: 240px;
+  padding: 10px 15px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+
+.saved-center .saved-container .card:hover > .sub-card {
+  display: flex;
+}
+
+.saved-center .saved-container .sub-card button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #fff;
+  color: #404040;
+}
+
+.saved-center .saved-container .sub-card button:nth-child(1){
+    background: #00ECC2;
+    color: #fff;
+}
+
+.saved-center .saved-container .sub-card button:nth-child(2){
+    border: 1px solid #FF4359;
+}
+
+.saved-center .saved-container .sub-card button:nth-child(3){
+    border: 1px solid #00ECC2;
+}

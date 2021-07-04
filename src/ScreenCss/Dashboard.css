@@ -1,0 +1,111 @@
+
+.grid1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 40px;
+    width: 100%;
+    height: 300px;
+}
+
+.postImage{
+width: 100%;
+margin-left:20px ;
+height: 100%;
+}
+
+.PostContent{
+    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.title-header{
+    width: 80%;
+    font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 48px;
+line-height: 62px;
+/* or 129% */
+
+
+color: #000000;
+}
+
+.sub-title{
+    width: 80%;
+  
+    font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 30px;
+
+color: #26272D;
+}
+
+.date-header{
+    font-family: Poppins;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+letter-spacing: 0.02em;
+
+color: #404040
+}
+.grid2 {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 40px;
+    width: 100%;
+    height: 300px;
+    margin: 20px;
+}
+
+.postListItem{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+width: 100%;
+}
+
+.postListItem .header{
+    font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 30px;
+
+color: #000000;
+}
+
+.postListItem .sub-header{
+    font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+
+color: #26272D;
+}
+
+.postListItem .date{
+    font-family: Poppins;
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+
+letter-spacing: 0.02em;
+
+color: #404040;
+}

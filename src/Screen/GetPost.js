@@ -1,5 +1,9 @@
 import React,{useEffect,useState} from 'react'
-
+import '../ScreenCss/Home.css'
+import NavigationBar from '../ReusableComponent/NavigationBar'
+import LeftSideBarCommon from '../ReusableComponent/LeftSideBarCommon'
+import DashboardCenter from '../ReusableComponent/DashboardCenter'
+import DashBoardRight from '../ReusableComponent/DashBoardRight'
 function GetPost(props) {
     const [post, setpost] = useState([])
     useEffect(() => {
@@ -39,41 +43,13 @@ function GetPost(props) {
         
     }
     return (
-        <div className="get-post-main-container" >
-            <div onClick={()=>props.history.push('/post')} className="create-post-button" >create Post</div>
-            <div onClick={()=>props.history.push('/draft')} className="draft-button" >Draft</div>
-        <div className="blog-list-container" >
-            {
-                post.map((data)=>{
-
-                    return(
-                        
-                        <div 
-                        className="blog-list-item-container"
-                        
-                        >
-                            <div onClick={
-                         ()=>   props.history.push({
-                                pathname: `/${data.slug}`,
-                                state:{id:data._id,slug:data.slug}
-                            } )
-                        
-                        } className="image-container" >
-                                
-                                <img  src={`http://localhost:8080/${data.filename}`} />
-                            </div>
-                            <div className="title-and-subtitle-container" >
-                                <h1> {data.title}</h1>
-                                <div>{data.subtitle}</div>
-                            </div>
-                            <div onClick={()=>deletePost(data._id)} >
-                                Delete
-                            </div>
-                        </div>
-                    )
-                })
-            }
-        </div>
+        <div className="home">
+            <NavigationBar />
+            <div className="grid">
+                <LeftSideBarCommon/>
+                <DashboardCenter/>
+                <DashBoardRight/>
+            </div>
         </div>
     )
 }

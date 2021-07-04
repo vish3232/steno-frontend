@@ -10,12 +10,15 @@ import GetPost from './Screen/GetPost';
 import GetPostAsPerId from './Screen/GetPostAsPerId';
 import DraftScreen from './Screen/Draft';
 import GetDraftAsperId from './Screen/GetDraftAsperId';
+import Dashboard from './Screen/Dashboard';
 function App() {
     
   return (
     <BrowserRouter>
         <Switch>
         <Route exact path="/" component={GetPost} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        
         <Route exact path="/draft" component={DraftScreen} />
         <Route exact path="/draftView" component={GetDraftAsperId} />
   

@@ -1,0 +1,12 @@
+.home .grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 20px;
+    background-color:#f8f8f9;
+}
+
+.home .grid2 {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}

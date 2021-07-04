@@ -1,12 +1,18 @@
 import React,{useState,useEffect,useRef} from 'react'
 import '../App.css';
+import '../ScreenCss/GetPostAsPerId.css'
 import EditorJs from 'react-editor-js';
 import edjsHTML from 'editorjs-html'
 import { EDITOR_JS_TOOLS } from '../tools'
 import {textinput_component} from '../Textinput'
 import {textinput_forparagraph} from '../Textinput'
 //import Parser from '@son_xx/editor-js-parser'
+import GenerateCopy from '../ReusableComponent/GenerateCopy'
+import RightApps from '../ReusableComponent/RightApps'
 import Parser from 'editorjs-viewer'
+import NavigationBarForEditor from '../ReusableComponent/NavigationBarForEditor';
+import SavedCenter from '../ReusableComponent/SavedCenter'
+import postImage from '../assets/postImage.svg'
 global.backendData={}
 function GetPostAsPerId(props) {
     const [allData,setallData]=useState({})
@@ -17,7 +23,7 @@ function GetPostAsPerId(props) {
           
     useEffect(() => {
         if(props.location.state!==null){
-       getPostAsPerId()
+     //  getPostAsPerId()
         }
     }, [])
 
@@ -46,13 +52,31 @@ function GetPostAsPerId(props) {
     }
 
     return (
-        <div id="myblog" className="main-container" >
-            <h1>{allData.title}</h1>
-            <div>
-                {allData.subtitle}
+        <div className="home">
+        <NavigationBarForEditor />
+        <div className="post-per-id-container" >
+            <div className="post-per-id-sub-container" >
+                <h1>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </h1>
+                <div className="username" >
+                By Malav Warke | June 28, 2021
+                </div>
+                <img className="postImage" src={postImage} />
+                <div className="subTitle" >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.
+                </div>
+                <div className="content" >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.
+               <br/>
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.
+               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.
+               <br/>
+               
+                </div>
             </div>
         </div>
-       
+     </div>
         )
 }
 

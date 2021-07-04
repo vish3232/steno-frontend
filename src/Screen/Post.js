@@ -4,7 +4,10 @@ import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../tools'
 import {textinput_component} from '../Textinput'
 import {textinput_forparagraph} from '../Textinput'
-
+import GenerateCopy from '../ReusableComponent/GenerateCopy'
+import NavigationBarForEditor from '../ReusableComponent/NavigationBarForEditor';
+import SavedCenter from '../ReusableComponent/SavedCenter'
+import RightApps from '../ReusableComponent/RightApps'
 function Post() {
     const [titledata,settitledata]=useState(null)
     const [subTitle,setsubTitle]=useState(null)
@@ -73,31 +76,14 @@ function Post() {
 
     
     return (
-        <div className="main-container" >
-          <input onChange={(e)=>{settitledata(e.target.value);seturl(e.target.value)}} className="title-input-box"  placeholder="Enter title" />
-          <input onChange={(e)=>setsubTitle(e.target.value)} className="sub-title-input-box"  placeholder="Enter sub title" />
-  
-   {/*<div contenteditable class="cdx-input" data-placeholder="Custom placeholder">
-   <EditorJs    placeholder="Title"   onChange={(api, newData)=>onChangeText(newData)} data={titledata} tools={textinput_component}  />
-  
-  </div>
-    */}
-  <div contenteditable class="cdx-input" data-placeholder="Custom placeholder" >
-    <EditorJs    placeholder="Write something..."   onChange={(api, newData)=>onChangeParagraph(newData)} data={titledata} tools={EDITOR_JS_TOOLS}  />
-    </div>
-    <div>
-      <input value={url}  onChange={(e)=>seturl(e.target.value)} placeholder="enter url" style={{width:"80%",height:40,borderRadius:15}} />
-      <input type="file" onChange={(e)=>setFile(e.target.files[0])}  style={{width:"80%",height:40}} />
-    
-    </div>
-      <div onClick={()=>publishPost()} className="submit-button" >
-        Submit
+  <div className="home">
+      <NavigationBarForEditor />
+      <div className="grid">
+       <GenerateCopy/>
+       <SavedCenter/>
+       <RightApps/>
       </div>
-      <div onClick={()=>draftPost()} className="save-button" >
-        Save
-      </div>
-    </div>
-   
+  </div> 
         )
 }
 
