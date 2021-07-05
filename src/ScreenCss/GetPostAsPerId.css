@@ -4,8 +4,7 @@
     align-items: center;
     justify-self: flex-start;
     width: 100%;
-    background-color:#C4C4C4;
-    height: 700px;
+    background-color:#f8f8f9;
 }
 
 .post-per-id-sub-container{
@@ -47,8 +46,9 @@ letter-spacing: 0.02em;
 color: #808080;
 }
 
-.postImage{
+.postImageOfSingelPost{
     width: 100%;
+    height: 300px;
 }
 
 .subTitle{
@@ -64,6 +64,8 @@ color: #808080;
 
 }
 
+
+
 .content{
     width: 100%;
     font-family: Poppins;
@@ -74,7 +76,8 @@ line-height: 30px;
 /* or 167% */
 
 display: flex;
-align-items: center;
+flex-direction: column;
+align-items: flex-start;
 letter-spacing: 0.02em;
 
 color: #000000;

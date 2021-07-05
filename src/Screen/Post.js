@@ -2,8 +2,6 @@ import React,{useState} from 'react'
 import '../App.css';
 import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../tools'
-import {textinput_component} from '../Textinput'
-import {textinput_forparagraph} from '../Textinput'
 import GenerateCopy from '../ReusableComponent/GenerateCopy'
 import NavigationBarForEditor from '../ReusableComponent/NavigationBarForEditor';
 import SavedCenter from '../ReusableComponent/SavedCenter'
@@ -74,13 +72,36 @@ function Post() {
    
     }
 
+    const onChangeTitle=(value)=>{
+      settitledata(value)
+      seturl(value)
+    }
+
+    const onChangeSubtitle=(value)=>{
+      setsubTitle(value)
+    }
+
+    const onChangeFile=(value)=>{
+      setFile(value)
+    }
+
+   
     
     return (
   <div className="home">
-      <NavigationBarForEditor />
+      <NavigationBarForEditor onClickSave={()=>draftPost()}  />
       <div className="grid">
-       <GenerateCopy/>
-       <SavedCenter/>
+       <GenerateCopy slug={url} title={paragraphTitle} onTitleInput={(text)=>onChangeTitle(text)} onSubtitleInput={(text)=>onChangeSubtitle(text)} onFileInput={(text)=>onChangeFile(text)} onClickPublish={()=>publishPost()}  />
+       <div className="saved-center">
+            <div className="filter">
+            <div contenteditable class="cdx-input" data-placeholder="Custom placeholder" >
+    <EditorJs    placeholder="Write something..."   onChange={(api, newData)=>onChangeParagraph(newData)} data={paragraphTitle} tools={EDITOR_JS_TOOLS}  />
+    </div>
+            </div>
+
+           
+        </div>
+    
        <RightApps/>
       </div>
   </div> 

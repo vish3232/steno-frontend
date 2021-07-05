@@ -1,22 +1,46 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import '../ScreenCss/Dashboard.css'
-import DashboardPostImage from '../assets/DashboardPostImage.svg'
-import Logo from '../assets/Logo.svg'
 import NavigationBar from '../ReusableComponent/NavigationBar'
-function Dashboard() {
+function Dashboard(props) {
+    const [post, setpost] = useState([])
+    useEffect(() => {
+       getPostList()
+    }, [])
+    const getPostList=()=>{
+        
+        fetch('http://localhost:8080/post/getAllPostData').then(res=>res.json()).then(data=>{
+           // console.log(data.postData)
+            if(data.message==="success..."){
+
+                setpost(data.postData)
+            }
+        })
+    }
+
+
+    
+
     return (
         <div  >
            <NavigationBar/>
-            <div className="grid1" >
+           {post.length?
+            <div onClick={
+                ()=>   props.history.push({
+                       pathname: `/${post[0].slug}`,
+                       state:{id:post[0]._id,slug:post[0].slug}
+                   })
+
+               } className="grid1" >
+                
                 <div className="postImage" >
-                 <img src={DashboardPostImage} style={{width:'100%',height:"100%"}} />
+                 <img alt="postImage" src={`http://localhost:8080/${post[0].filename}`} style={{width:'100%',height:"100%",objectFit:'cover'}} />
                 </div>
                 <div className="PostContent" >
                     <div className="title-header" >
-                    Top 10 ways to grow online and build audience
+                    { post[0].title}
                     </div>
                     <div className="sub-title" >
-                    Top 10 ways to grow online and build audience Top 10 ways to grow online and build audience
+                   {post[0].subtitle}
                     </div>
                     <div className="date-header" >
                     June 04, 2021
@@ -24,47 +48,39 @@ function Dashboard() {
                 </div>
                
 
-            </div>
+            </div>:<></>
+            }
       
             <div className="grid2" >
-                <div className="postListItem" >
-                    <img src={DashboardPostImage} style={{width:"100%",height:"100%"}} />
-                    <div className="header" >
-                    Top 10 ways to grow online and build audience
-                    </div>
-                    <div className="sub-header" >
-                    Top 10 ways to grow online and build audience Top 10 ways to grow online and build audience
-                    </div>
-                    <div className="date" >
-                    June 04, 2021
-                    </div>
-                </div>
+                {
+                    post.map((data)=>{
+                        return(
+                <div onClick={
+                    ()=>   props.history.push({
+                           pathname: `/${data.slug}`,
+                           state:{id:data._id,slug:data.slug}
+                       } )
 
-                <div className="postListItem" >
-                    <img src={DashboardPostImage} style={{width:"100%",height:"100%"}} />
+                   } className="postListItem" >
+                    <div className="image" >
+                    <img alt="postImage" src={`http://localhost:8080/${data.filename}`} style={{width:"100%",height:"100%",objectFit:'cover'}} />
+                    </div>
                     <div className="header" >
-                    Top 10 ways to grow online and build audience
+                   {data.title}
                     </div>
                     <div className="sub-header" >
-                    Top 10 ways to grow online and build audience Top 10 ways to grow online and build audience
+                   {data.subtitle}
                     </div>
                     <div className="date" >
                     June 04, 2021
                     </div>
                 </div>
+                        )
+                    })
+                }
+                
 
-                <div className="postListItem" >
-                    <img src={DashboardPostImage} style={{width:"100%",height:"100%"}} />
-                    <div className="header" >
-                    Top 10 ways to grow online and build audience
-                    </div>
-                    <div className="sub-header" >
-                    Top 10 ways to grow online and build audience Top 10 ways to grow online and build audience
-                    </div>
-                    <div className="date" >
-                    June 04, 2021
-                    </div>
-                </div>
+               
             </div>
     
         </div>

@@ -1,9 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../ReusableComponentCss/DashboardRight.css'
+import { useHistory } from "react-router-dom";
 
 const DashBoardRight = () => {
+    const [draft, setdraft] = useState([])
+    useEffect(() => {
+       getPostList()
+    }, [])
+    const getPostList=()=>{
+        
+        fetch('http://localhost:8080/draft/getAllDraftData').then(res=>res.json()).then(data=>{
+           // console.log(data.postData)
+            if(data.message==="success..."){
 
-  
+                setdraft(data.draftData)
+            }
+        })
+    }
+
+    const history = useHistory();
+   
     return (
         <div className="dash-board-right">
             <div className="resources">
@@ -20,40 +36,25 @@ const DashBoardRight = () => {
                 </div>
 
                         <div className="card-container">
-                                         <div className="card" >
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                                        </div>
-                            
+                                      {
+                                          draft.map((data)=>{
+                                              return(
+                                                <div onClick={
+                                                    ()=>history.push({
+                                                     pathname: `/draftView`,
+                                                     state:{draftData:data}
+                                                 } )
+                                                   } className="card" >
+                                                <p>{data.title}</p>
+                                            </div>
+                                
+                                              )
+                                          })
+                                      }
+                                        
                         </div>
 
-                        <div className="card-container">
-                                         <div className="card" >
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                                        </div>
-                            
-                        </div>
-                
-                        <div className="card-container">
-                                         <div className="card" >
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                                        </div>
-                            
-                        </div>
-                
-                        <div className="card-container">
-                                         <div className="card" >
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                                        </div>
-                            
-                        </div>
-                
-                        <div className="card-container">
-                                         <div className="card" >
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
-                                        </div>
-                            
-                        </div>
-                
+                       
                 
             </div>
         </div>

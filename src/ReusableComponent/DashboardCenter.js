@@ -1,10 +1,22 @@
-import React, { useContext } from 'react'
-import Google from '../assets/Google.svg'
-import Facebook from '../assets/Facebook.svg'
-import Instagram from '../assets/Instagram.svg'
+import React, { useEffect,useState } from 'react'
 import '../ReusableComponentCss/DashboardCenter.css'
 import { useHistory } from "react-router-dom";
 const DashboardCenter = (props) => {
+    const [post, setpost] = useState([])
+   
+    useEffect(() => {
+       getPostList()
+    }, [])
+    const getPostList=()=>{
+        
+        fetch('http://localhost:8080/post/getAllPostData').then(res=>res.json()).then(data=>{
+           // console.log(data.postData)
+            if(data.message==="success..."){
+
+                setpost(data.postData)
+            }
+        })
+    }
 
     const history = useHistory();
     return (
@@ -33,56 +45,30 @@ const DashboardCenter = (props) => {
                 </div>
 
                 <div className="card-container">
-                    <div className="card" >
-                        <div>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem</span>
-                            <span>June 28,2021</span>
-                        </div>
-                        <div>
-                        <img src={Google} alt="" />
-                        </div>
-                        
-                    </div>
-
-                    <div className="card" >
-                        <img src={Google} alt="" />
-                        <div>
-                            <span>Google Ad Descriptions</span>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem.</span>
-                        </div>
-                    </div>
-
-                    <div className="card" >
-                        <img src={Facebook} alt="" />
-                        <div>
-                            <span>Facebook Ad Headlines</span>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem.</span>
-                        </div>
-                    </div>
-
-                    <div className="card" >
-                        <img src={Facebook} alt="" />
-                        <div>
-                            <span>Facebook Ad Descriptions</span>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem.</span>
-                        </div>
-                    </div>
-
-                    <div className="card" >
-                        <img src={Google} alt="" />
-                        <div>
-                            <span>Blog Titles</span>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem.</span>
-                        </div>
-                    </div>
-
-                    <div className="card" >
-                        <img src={Instagram} alt="" />
-                        <div>
-                            <span>Instagram Captions</span>
-                            <span>Lorem Ipsum is simply dummy text of the dummy for lorem.</span>
-                        </div>
-                    </div>
+                    {
+                        post.map((data)=>{
+                            return(
+                                <div onClick={
+                                    ()=>  history.push({
+                                           pathname: `/${data.slug}`,
+                                           state:{id:data._id,slug:data.slug}
+                                       } )
+                                   }  className="card" >
+                                <div>
+                                    <span>{data.title}</span>
+                                    <span>June 28,2021</span>
+                                </div>
+                                <div>
+                                <img  src={`http://localhost:8080/${data.filename}`} alt="" />
+                                </div>
+                                
+                            </div>
+        
+                            )
+                        })
+                    }
+                   
+                    
                 </div>
             </div>
         </div>

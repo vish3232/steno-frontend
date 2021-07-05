@@ -37,7 +37,7 @@ function DraftScreen(props) {
                       } )
                         } className="image-container" >
                                 
-                                <img  src={`http://localhost:8080/${data.filename}`} />
+                                <img alt="draftImage" src={`http://localhost:8080/${data.filename}`} />
                             </div>
                             <div className="title-and-subtitle-container" >
                                 <h1> {data.title}</h1>
